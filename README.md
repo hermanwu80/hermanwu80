@@ -4,6 +4,8 @@ A two-person weekly budgeting app that replaces the paper notebook. It installs 
 
 It follows the paper system: one page per week, bills listed on the week they're due, a payday line, and "what's left" at the bottom.
 
+> **Also in this repo:** [`meal-prep/`](meal-prep/), a daily meal planner (three recipes per meal, one cascading grocery list, less food waste). It is a separate app with its own `package.json` and README.
+
 ## What it does
 
 - **Week view** – a Sun–Sat page (start day is configurable) with paydays and bills in date order, a budget bar per category, every transaction, and a big **projected left this week** number:
