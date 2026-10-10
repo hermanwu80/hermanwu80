@@ -1,3 +1,4 @@
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { openDb } from './db.js';
@@ -19,6 +20,10 @@ const app = createApp({
 });
 
 app.listen(port, () => {
-  console.log(`Weekly Budget running on http://localhost:${port}`);
+  console.log('\nWeekly Budget is running.\n');
+  console.log(`  On this computer:  http://localhost:${port}`);
+  const lan = Object.values(os.networkInterfaces()).flat().filter((i) => i && i.family === 'IPv4' && !i.internal);
+  for (const i of lan) console.log(`  On your iPhone (same Wi-Fi):  http://${i.address}:${port}`);
+  console.log('');
   console.log(ai.enabled ? `AI: ${ai.model}` : 'AI: disabled (set ANTHROPIC_API_KEY to enable receipt scanning)');
 });

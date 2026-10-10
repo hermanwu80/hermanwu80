@@ -17,17 +17,17 @@ It follows the paper system: one page per week, bills listed on the week they're
 
 No bank linking: everything is entered by receipt, email, or by hand.
 
-## Run it
+## Run it on your own computer (free)
 
 ```bash
 npm install
-cp .env.example .env      # add ANTHROPIC_API_KEY
-export $(grep -v '^#' .env | xargs)
-npm start                 # http://localhost:3000
-npm test
+cp .env.example .env      # then edit .env and paste your ANTHROPIC_API_KEY (optional for a first look)
+npm start
 ```
 
-Requires Node 22.13+. Data is a single SQLite file plus receipt images under `DATA_DIR` (default `./data`) — back that folder up.
+`npm start` reads `.env` automatically and prints two addresses: one for the computer, and one for an iPhone on the same Wi-Fi (e.g. `http://192.168.1.23:3000`). Run `npm test` for the automated tests.
+
+Requires Node 22.13+. Data is a single SQLite file plus receipt images under `DATA_DIR` (default `./data`) — back that folder up, and delete it to start over.
 
 The first person to open the app creates the household (and can start from the bills on your paper list). After that, setup is closed; the second person uses **I have an invite code** (code is in **More**).
 
