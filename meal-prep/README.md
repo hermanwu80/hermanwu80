@@ -35,6 +35,19 @@ npm start
 
 Data is a single SQLite file under `DATA_DIR` (default `./data`). Automatic planning runs inside the server process, so it only happens while the server is running; if it was off at the scheduled time, it catches up the next time it starts.
 
+### If `localhost` won't open
+
+- **`localhost` means the computer running the server.** If you built or started the app in a cloud/remote coding session, it is running there, not on your machine. Clone the repo onto your own computer and run it there:
+  ```bash
+  git clone https://github.com/hermanwu80/hermanwu80.git
+  cd hermanwu80
+  git checkout claude/gallant-lamport-c2lbxf     # until the branch is merged
+  cd meal-prep && npm install && npm start
+  ```
+  then open <http://localhost:3000>. Keep that terminal open; closing it stops the app.
+- **"needs Node 22.13 or newer"**: install the current LTS from <https://nodejs.org>, check with `node -v`.
+- **"Port 3000 is already in use"**: run `PORT=3100 npm start` (Windows PowerShell: `$env:PORT=3100; npm start`) and open `http://localhost:3100`.
+
 ## Put it on your phone
 
 Phones need the server reachable over **HTTPS** to install it. Any container host works (Fly.io, Railway, Render, or a home server behind Tailscale Funnel / a Cloudflare Tunnel), with a small persistent disk at `/data`:
